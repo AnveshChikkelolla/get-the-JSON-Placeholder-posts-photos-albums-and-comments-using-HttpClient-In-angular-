@@ -1,0 +1,32 @@
+<div *ngIf = show > 
+
+<div class="form-group">
+  <label >UserId</label>
+  <input type="number"  class="form-control" [(ngModel)]="userId" required>
+</div>
+<div class="form-group">
+  <label >title</label>
+  <input type="text" class="form-control" [(ngModel)]="title" required>
+</div>
+<div class="form-group">
+  <label >body:</label>
+  <input type="text" class="form-control" [(ngModel)]="body"required>
+</div>
+
+<button type="button" 
+class="btn" (click)=display() > Click
+</button>
+</div>
+
+
+
+<table  class="table table-bordered"  *ngIf = !show >
+  
+  <tr>  <th>Id</th><td>{{postdata.id}}</td>  </tr>
+    
+  <tr> <th>userId</th><td>{{postdata.userId}}</td>  </tr>
+    <tr><th>Title</th> <td>{{postdata.title}}</td> </tr>
+    <tr>    <th>Body</th><td> {{postdata.body}}</td>  </tr>
+   
+
+</table>

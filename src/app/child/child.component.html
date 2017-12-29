@@ -1,0 +1,17 @@
+
+<h1 >{{title}}</h1>
+<p *ngIf="showelement">ShowElement</p>
+
+<div class="counter">
+  <button (click)="decrement()">
+    Decrement
+  </button>
+  <input type="text" [value]="count"  >
+  <button (click)="increment()">
+    Increment
+  </button>
+  
+  <div class="app">
+    <p> {{count}}</p>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+
+<h1 >Student Details</h1>
+
+
+
+<div   *ngFor=" let student of students  "  >
+ <table  class="table  table-bordered table-striped   "*ngIf="student.id===studentId" >
+  
+     
+  <tr >  <th >Id</th>      <td> {{student.id}}   </td>    </tr>
+  <tr>  <th>Name</th>     <td> {{student.name|lowercase}}   </td>   </tr>
+  <tr>  <th>Branch</th>   <td>{{student.branch|lowercase}}</td>   </tr>
+  <tr>   <th>Percentage</th>  <td> {{student.percentage}} % </td>  </tr>
+  
+</table>
+
+</div > 

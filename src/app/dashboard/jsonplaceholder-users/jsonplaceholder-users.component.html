@@ -1,0 +1,62 @@
+ <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></button>
+  <ul class="">
+    <li><a (click)="updateLimit(3)">3</a></li>
+    <li><a (click)="updateLimit(5)">5</a></li>
+    <li><a (click)="updateLimit(8)">8</a></li>
+    <li><a (click)="updateLimit(10)">10</a></li>      
+  </ul>
+</div>
+<div>
+  <h2>Jsonplaceholder Details</h2>
+</div>
+<table  class="table table-bordered"  *ngIf='UserList' >
+  <tr>
+    <th>Id</th>
+    <th>name</th>
+    <th>username</th> 
+    <th>Email</th>
+    <th>City</th>
+    <th>PhoneNumber</th>
+    <th>Website</th>
+    <th>Company</th>
+  </tr>
+   <tr  *ngFor="let user of pagedItems"  >
+     
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.address.city}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.website}}</td>
+    <td>{{user.company.name}}</td>
+     </tr>  
+</table>
+<div style="position:relative; top:100px; text-align:center">
+    <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pagination.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pagination.currentPage === 1}">
+        <a (click)="setPage(pagination.currentPage - 1)">Prev</a>
+    </li>
+    <li *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+        <a (click)="setPage(pagination.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+        <a (click)="setPage(pagination.totalPages)">Last</a>
+    </li>
+    </ul>
+    </div>
+    
+      
+
+
+
+
+

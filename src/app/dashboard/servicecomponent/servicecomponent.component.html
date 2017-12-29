@@ -1,0 +1,36 @@
+<div class="dropdown"style="position:relative;left:100px;top:30px">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Images per page
+  <span class="caret"></span></button>
+  <!-- dropdown-menu -->
+  <ul class="">
+    <li><a (click)="updateLimit(5)">5</a></li>
+    <li><a (click)="updateLimit(10)">10</a></li>
+    <li><a (click)="updateLimit(50)">50</a></li>
+    <li><a (click)="updateLimit(100)">100</a></li>      
+  </ul>
+</div>
+<div *ngFor="let image of pagedItems" style="display: inline-block; position:relative;left:50px; top:100px" >
+<ul style="list-style-type: none">
+  <li><img src={{image.thumbnailUrl}} (click)="currentImage(image.url)"/></li>
+</ul>
+</div>
+<img style="position:relative; top:100px; text-align:center" *ngIf="currenturl" src={{currenturl}}/>
+<div style="position:relative; top:100px; text-align:center">
+<ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
+<li [ngClass]="{disabled:pagination.currentPage === 1}">
+    <a (click)="setPage(1)">First</a>
+</li>
+<li [ngClass]="{disabled:pagination.currentPage === 1}">
+    <a (click)="setPage(pagination.currentPage - 1)">Prev</a>
+</li>
+<li *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}">
+    <a (click)="setPage(page)">{{page}}</a>
+</li>
+<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+    <a (click)="setPage(pagination.currentPage + 1)">Next</a>
+</li>
+<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+    <a (click)="setPage(pagination.totalPages-1)">Last</a>
+</li>
+</ul>
+</div>

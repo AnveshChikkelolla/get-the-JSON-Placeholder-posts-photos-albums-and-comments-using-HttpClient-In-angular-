@@ -1,0 +1,52 @@
+<p>
+  dashboard-component works!
+</p>  
+
+<div>
+  <h2>Search By Student Name</h2>
+<input class="input" type="text" [(ngModel)]="term" >
+</div>
+                    
+<table  class="table table-bordered"  *ngIf='students&&students.length' >
+  <tr>
+    <th>Name</th>
+    <th>Branch</th> 
+    <th>Percentage</th>
+  </tr>
+ 
+
+
+    <div *ngIf="( students|filter:term).length===0" > <h1>  No student data found  </h1></div>
+      <tr  *ngFor="let student of students|filter:term"  >
+     
+       
+
+    
+                   <td><a  [routerLink]= "['/student', student.id]" >
+                             {{student.name|lowercase}}</a>
+                  </td>
+                   
+                    
+                    <td>{{student.branch|lowercase}}</td>
+                
+        
+     
+     <td> <button type="button" 
+            class="btn" (click)=percentage(student.percentage)
+                    [appAddColor]="student.percentage"  > Click
+          </button>
+    </td>   
+  
+    
+    </tr  >
+   
+    
+    
+       
+        
+  </table>
+
+
+
+
+
